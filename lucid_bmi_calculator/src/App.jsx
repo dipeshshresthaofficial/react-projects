@@ -9,6 +9,13 @@ function App() {
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
 
+  // resetting fields back to default
+  function handleResetFields(){
+    setHeight(DEFAULT_SLIDER_VALUE);
+    setWeight(DEFAULT_SLIDER_VALUE);
+    setBmi(0);
+  }
+
   // calculate BMI
   function handleCalculateBMI(){
     console.log(height+ " "+ weight);
