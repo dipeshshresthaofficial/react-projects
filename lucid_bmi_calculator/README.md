@@ -1,3 +1,14 @@
+# Technologies Used:
+- React
+- Tailwind CSS
+
+# Concepts Used
+- Reuseable component (Slider component)
+- Data binding (between state and input fields)
+- Callback function in parent (for passing data from child to parent)
+- React useState hook
+- Default Parameters
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

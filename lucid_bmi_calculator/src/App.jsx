@@ -26,6 +26,7 @@ function App() {
     setBmi(res);
   }
 
+  // Callback function that gets data from child component: Slider
   // update state based on slider changed value
   function handleSliderChange(value, title){
     if(title == "Weight") setWeight(value);
