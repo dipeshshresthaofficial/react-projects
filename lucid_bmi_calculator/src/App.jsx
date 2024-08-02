@@ -14,9 +14,9 @@ function App() {
   }
 
   return (
-    <>
-      <h1>BMI Calculator</h1>
-      <div>
+    <div className='border rounded-md'>
+      <h1 className='py-5 px-10 bg-violet-500 text-white'>BMI Calculator</h1>
+      <div className='p-5'>
         <Slider 
           sliderTitle='Weight' 
           sliderValue='40'
@@ -31,7 +31,7 @@ function App() {
           handleSliderChange = {handleSliderChange}
           />
       </div>
-    </>
+    </div>
   )
 }
 
