@@ -6,7 +6,7 @@ function Slider({sliderTitle, sliderValue = '40', sliderSuffix, min='40', max='2
         <label className='text-start'>{sliderTitle+": "+sliderValue + sliderSuffix}</label>
         <input 
             type="range"
-            defaultValue={sliderValue}
+            value={sliderValue}
             min={min}
             max={max}
             step={step}
