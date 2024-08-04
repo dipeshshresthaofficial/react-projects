@@ -4,9 +4,9 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      Hello World!
-    </>
+    <div>
+      <h1 className='text-red'>Hello World!</h1>
+    </div>
   )
 }
 
