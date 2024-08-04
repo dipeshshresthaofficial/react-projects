@@ -7,7 +7,7 @@ import AddTransaction from './components/AddTransaction'
 function App() {
 
   const [transactionTitle, setTransactionTitle] = useState("")
-  const [transactionAmount, setTransactionAmount] = useState(0)
+  const [transactionAmount, setTransactionAmount] = useState("")
   const [transactions, setTransactions] = useState([
     {
       "id": 1,
@@ -35,18 +35,29 @@ function App() {
   }
 
   function handleAddTransaction(){
-    // generate random Id
-    let randomValue = Math.floor(Math.random()*1000);
-    let todayDate = Date.now();
-    let id = randomValue.toString()+todayDate.toString();
-    let type = transactionAmount < 0? "expense":"income";
-    let newTransaction = {
-      "id": Number(id),
-      "title": transactionTitle,
-      "amount": Number(transactionAmount),
-      "type": type
+    if (transactionAmount == "" && transactionTitle == "")
+      alert("Please make sure to add Transaction Title and Amount.")
+    else if(transactionAmount == ""){
+      alert("Please make sure to add Transaction Amount.")
+    } else if(transactionTitle == ""){
+      alert("Please make sure to add Transaction Title.")
+    } else{
+      // generate random Id
+      let randomValue = Math.floor(Math.random()*1000);
+      let todayDate = Date.now();
+      let id = randomValue.toString()+todayDate.toString();
+      let type = transactionAmount < 0? "expense":"income";
+      let newTransaction = {
+        "id": Number(id),
+        "title": transactionTitle,
+        "amount": Number(transactionAmount),
+        "type": type
+      }
+      // reset title and amount state
+      setTransactionAmount("");
+      setTransactionTitle("");
+      setTransactions([newTransaction, ...transactions]);
     }
-    setTransactions([newTransaction, ...transactions]);
   }
 
   return (
