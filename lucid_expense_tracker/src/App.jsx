@@ -6,7 +6,7 @@ import AddTransaction from './components/AddTransaction'
 
 function App() {
 
-  const [transactionTitle, setTransactionTitle] = useState('')
+  const [transactionTitle, setTransactionTitle] = useState("")
   const [transactionAmount, setTransactionAmount] = useState(0)
   const [transactions, setTransactions] = useState([
     {
@@ -35,7 +35,18 @@ function App() {
   }
 
   function handleAddTransaction(){
-    console.log(transactionTitle+" "+transactionAmount);
+    // generate random Id
+    let randomValue = Math.floor(Math.random()*1000);
+    let todayDate = Date.now();
+    let id = randomValue.toString()+todayDate.toString();
+    let type = transactionAmount < 0? "expense":"income";
+    let newTransaction = {
+      "id": Number(id),
+      "title": transactionTitle,
+      "amount": Number(transactionAmount),
+      "type": type
+    }
+    setTransactions([newTransaction, ...transactions]);
   }
 
   return (

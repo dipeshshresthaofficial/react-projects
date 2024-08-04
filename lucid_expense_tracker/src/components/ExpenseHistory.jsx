@@ -9,7 +9,11 @@ function ExpenseHistory({ transactions }) {
         <div className=' max-h-96 overflow-scroll'>
             {
                 transactions.map( transaction => (
-                    <HistoryCard key={transaction.id} transactionTitle={transaction.title} transactionAmount={transaction.amount} />
+                    <HistoryCard 
+                        key={transaction.id} 
+                        transactionTitle={transaction.title} 
+                        transactionAmount={transaction.amount} 
+                        />
                 ))
             }
         </div>
