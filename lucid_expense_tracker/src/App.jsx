@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Portfolio from './components/Portfolio'
 import ExpenseHistory from './components/ExpenseHistory'
@@ -8,26 +8,24 @@ function App() {
 
   const [transactionTitle, setTransactionTitle] = useState("")
   const [transactionAmount, setTransactionAmount] = useState("")
-  const [transactions, setTransactions] = useState([
-    {
-      "id": 1,
-      "title": "Shopping",
-      "amount": -150,
-      "type": "expense"
-    },
-    {
-      "id": 2,
-      "title": "Food",
-      "amount": -70,
-      "type": "expense"
-    },
-    {
-      "id": 3,
-      "title": "Salary",
-      "amount": 450,
-      "type": "income"
+  const [transactions, setTransactions] = useState([])
+
+  useEffect(()=>{
+    async function fetchData(){
+      try{
+        let resp = await fetch("./../data.json");
+        if(!resp.ok){
+          console.log("Unable to fetch data");
+        }
+        let data = await resp.json();
+        setTransactions([...data.data]); 
+  
+      } catch(err){
+        console.log(err);
+      }
     }
-  ])
+    fetchData();
+  },[])
 
   function handleTransactionInputValue(value,inputType){
     if(inputType === 'text') setTransactionTitle(value);

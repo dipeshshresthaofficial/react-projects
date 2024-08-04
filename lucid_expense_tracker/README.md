@@ -1,3 +1,8 @@
+# Concepts Used:
+- Spread operator (...)
+- Fetch API (perform asynchronous calls, returns promise)
+- Async/Await (consumes promise)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
