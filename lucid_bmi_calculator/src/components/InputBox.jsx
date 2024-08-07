@@ -3,7 +3,7 @@ import React from 'react'
 function InputBox({
     type, 
     title, 
-    value = '0', 
+    value, 
     suffix, 
     min='0', 
     max='200', 
@@ -31,6 +31,7 @@ function InputBox({
             <label className='text-start'>{title+":"}</label>
             <select 
               name='gender'
+              value={value}
               className='py-1 px-2 border-2 border-gray-400 rounded hover:border-gray-500 focus:outline-none focus:border-gray-500'
               onChange={ e => handleSliderChange(e.target.value, title)}
               >

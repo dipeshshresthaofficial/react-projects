@@ -8,8 +8,8 @@ function App() {
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
-  const [gender, setGender] = useState(0);
-  const [ageGroup, setAgeGroup] = useState(0);
+  const [gender, setGender] = useState(-1);
+  const [ageGroup, setAgeGroup] = useState(-1);
   const [feedback, setFeedback] = useState("");
 
   const genderOptions = [
@@ -221,6 +221,7 @@ function App() {
         <InputBox
           type="select"
           title="Gender"
+          value={gender}
           options = {genderOptions}
           handleSliderChange={handleSliderChange}
         />
@@ -230,6 +231,7 @@ function App() {
           <InputBox
             type="select"
             title="Age Group"
+            value={ageGroup}
             options = {maleAgeGroup}
             handleSliderChange={handleSliderChange}
             />
@@ -238,6 +240,7 @@ function App() {
           <InputBox
             type="select"
             title="Age Group"
+            value={ageGroup}
             options={femaleAgeGroup}
             handleSliderChange={handleSliderChange}
             />
