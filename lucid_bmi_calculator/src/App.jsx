@@ -1,4 +1,4 @@
-import { act, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import InputBox from './components/InputBox'
 
@@ -150,9 +150,6 @@ function App() {
   }
 
   function handleFeedbackWithGenderAndAge(bmi){
-    // gender
-    // age group
-    // bmi
     let data = [];
     // Male = 1 and Female = 2
     if(Number(gender) === 1){
@@ -183,18 +180,13 @@ function App() {
     setBmi(res);
   }
 
-  // Callback function that gets data from child component: Slider
-  // update state based on slider changed value
+  // Callback function that gets data from child component: InputBox
+  // update state based on input fields changed value
   function handleSliderChange(value, title){
-    // const actionBtns = document.getElementsByClassName("action-btn");
-    // for(let i=0; i<actionBtns.length; i++){
-    //   actionBtns[i].disabled = false;
-    // }
     if(title == "Weight") setWeight(value);
     else if (title == "Height") setHeight(value);
     else if (title == "Gender") setGender(value);
     else if (title == "Age Group") setAgeGroup(value);
-    
   }
 
   return (
@@ -217,7 +209,7 @@ function App() {
           handleSliderChange = {handleSliderChange}
           />
         
-        <span className='block text-left text-gray-400 italic'>*Optional*</span>
+        <span className='block text-left text-gray-400 italic'>*Below fields are optional*</span>
         <InputBox
           type="select"
           title="Gender"
@@ -252,14 +244,6 @@ function App() {
             handleSliderChange={handleSliderChange}
             />
         }
-        
-        {/* <InputBox 
-          type="number"
-          title="Age"
-          value={age}
-          suffix=" years"
-          handleSliderChange = {handleSliderChange}
-          /> */}
         <p className='mt-6'>Your BMI is: {bmi}</p>
         <p className='my-4'>{feedback}</p>
         <div className='flex flex-row justify-center gap-4'>
@@ -273,7 +257,6 @@ function App() {
             type='button' 
             value= "Reset"
             onClick={handleResetFields}
-            // id='action-btn'
             className='action-btn bg-slate-800 text-white rounded-full py-2 px-5 text-semibold hover:bg-slate-950 focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75'
             />
         </div>
