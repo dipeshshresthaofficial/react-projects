@@ -7,7 +7,8 @@
 - Data binding (between state and input fields)
 - Callback function in parent (for passing data from child to parent)
 - React useState hook
-- Default Parameters
+- Default parameters
+- Destructuring assignment (object destructuring)
 
 # Next Functionalities to add:
 - Robust: Disable Calculate and Reset button until user inputs data
