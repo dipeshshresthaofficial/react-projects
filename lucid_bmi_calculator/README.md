@@ -1,18 +1,20 @@
 # Technologies Used:
 - React
+- Hooks
 - Tailwind CSS
+- HTML, CSS, JavaScript
 
 # Concepts Used:
-- Reuseable component (Slider component)
+- Reuseable component (InputBox component)
 - Data binding (between state and input fields)
 - Callback function in parent (for passing data from child to parent)
-- React useState hook
+- React hooks: useEffect, useState
 - Default parameters
 - Destructuring assignment (object destructuring)
 
 # Next Functionalities to add:
-- Robust: Disable Calculate and Reset button until user inputs data
-- User Friendly: Based on user age, provide feedback (Healthy, Overweight, Obese)
+- Robust: Disable Calculate and Reset button until user inputs data ✅
+- User Friendly: Based on user age, provide feedback (Optimal, Acceptable) ✅
 - User Preference: Dark Mode
 - Flexibilty: Allow users to input weight in "lb"
 
