@@ -1,13 +1,31 @@
-import { useState } from 'react'
+import { act, useEffect, useState } from 'react'
 import './App.css'
 import Slider from './components/Slider'
 
 function App() {
 
-  const DEFAULT_SLIDER_VALUE = '40';
+  const DEFAULT_SLIDER_VALUE = '0';
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
+
+  // useEffect gets called everytime there is a change in height and weight value.
+  // Allowing user to calculate or reset only if user selects at least height or both
+  useEffect(()=>{
+    const actionBtns = document.getElementsByClassName("action-btn");
+    // In the case were just height is 0 it results in infinity case so we should let the button stay disabled
+    if(height == 0 || (weight == 0 && height == 0)){
+      for(let i=0; i<actionBtns.length; i++){
+        actionBtns[i].disabled = true;
+        actionBtns[i].style.opacity = '0.2';
+      }                    
+    } else{
+      for(let i=0; i<actionBtns.length; i++){
+        actionBtns[i].disabled = false;
+        actionBtns[i].style.opacity = '1';
+      }  
+    }
+  },[weight,height]);
 
   // resetting fields back to default
   function handleResetFields(){
@@ -29,8 +47,13 @@ function App() {
   // Callback function that gets data from child component: Slider
   // update state based on slider changed value
   function handleSliderChange(value, title){
+    // const actionBtns = document.getElementsByClassName("action-btn");
+    // for(let i=0; i<actionBtns.length; i++){
+    //   actionBtns[i].disabled = false;
+    // }
     if(title == "Weight") setWeight(value);
     else if (title == "Height") setHeight(value);
+    
   }
 
   return (
@@ -56,13 +79,14 @@ function App() {
             type='button' 
             value= "Calculate" 
             onClick={handleCalculateBMI}
-            className='bg-violet-600 text-white rounded-full py-2 px-5 font-semibold hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75'
+            className='action-btn bg-violet-600 text-white rounded-full py-2 px-5 font-semibold hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75'
             />
           <input 
             type='button' 
             value= "Reset"
             onClick={handleResetFields}
-            className='bg-slate-800 text-white rounded-full py-2 px-5 text-semibold hover:bg-slate-950 focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75'
+            // id='action-btn'
+            className='action-btn bg-slate-800 text-white rounded-full py-2 px-5 text-semibold hover:bg-slate-950 focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75'
             />
         </div>
       </div>
