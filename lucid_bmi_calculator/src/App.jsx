@@ -151,26 +151,22 @@ function App() {
 
   function handleFeedbackWithGenderAndAge(bmi){
     let data = [];
-    if(ageGroup != -1){
-      // Male = 1 and Female = 2
-      if(Number(gender) === 1){
-        data = maleAgeGroup.filter( item => Number(item.id) == ageGroup)
-      } else{
-        data = femaleAgeGroup.filter( item => Number(item.id) == ageGroup) 
-      }
-      if(Number(gender) === 1 || Number(gender) === 2){
-        // Destructuring assignment (object destructuring)
-        const {optimalBMI, acceptableBMI} = data[0];
-        const optimalBMIArr = optimalBMI.split("-");
-        const acceptableBMIArr = acceptableBMI.split("-");
-        if(bmi >= optimalBMIArr[0] && bmi <= optimalBMIArr[1]) 
-            setFeedback("Your BMI is optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
-        else if(bmi >= acceptableBMIArr[0] && bmi <= acceptableBMIArr[1]) 
-            setFeedback("Your BMI is acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
-        else setFeedback("Your BMI is neither in optimal nor in acceptable range");
-      }
+    // Male = 1 and Female = 2
+    if(Number(gender) === 1){
+      data = maleAgeGroup.filter( item => Number(item.id) == ageGroup)
     } else{
-      alert("Please select the age group as well.");
+      data = femaleAgeGroup.filter( item => Number(item.id) == ageGroup) 
+    }
+    if(Number(gender) === 1 || Number(gender) === 2){
+      // Destructuring assignment (object destructuring)
+      const {optimalBMI, acceptableBMI} = data[0];
+      const optimalBMIArr = optimalBMI.split("-");
+      const acceptableBMIArr = acceptableBMI.split("-");
+      if(bmi >= optimalBMIArr[0] && bmi <= optimalBMIArr[1]) 
+          setFeedback("Your BMI is optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
+      else if(bmi >= acceptableBMIArr[0] && bmi <= acceptableBMIArr[1]) 
+          setFeedback("Your BMI is acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
+      else setFeedback("Your BMI is neither in optimal nor in acceptable range");
     }
   }
 
@@ -180,13 +176,16 @@ function App() {
     const heightInMeter = height/100;
     let res = 0;
     if(weight !== 0 && height !== 0) res = (weight/ (heightInMeter * heightInMeter)).toFixed(2);
-    handleFeedbackWithGenderAndAge(res);
+    if(gender != -1)  {
+      if(ageGroup == -1) alert("For feedback make sure to select AgeGroup as well.");
+      else handleFeedbackWithGenderAndAge(res);
+    };
     setBmi(res);
   }
 
   // Callback function that gets data from child component: InputBox
   // update state based on input fields changed value
-  function handleSliderChange(value, title){
+  function handleInputChange(value, title){
     if(title == "Weight") setWeight(value);
     else if (title == "Height") setHeight(value);
     else if (title == "Gender") setGender(value);
@@ -202,7 +201,7 @@ function App() {
           title='Weight' 
           value={weight}
           suffix='kg'
-          handleSliderChange = {handleSliderChange}
+          handleInputChange = {handleInputChange}
           />
         <InputBox
           type="range"
@@ -210,7 +209,7 @@ function App() {
           value={height}
           suffix='cm'
           max='250'
-          handleSliderChange = {handleSliderChange}
+          handleInputChange = {handleInputChange}
           />
         
         <span className='block text-left text-gray-400 italic'>*Below fields are optional*</span>
@@ -219,7 +218,7 @@ function App() {
           title="Gender"
           value={gender}
           options = {genderOptions}
-          handleSliderChange={handleSliderChange}
+          handleInputChange={handleInputChange}
         />
         {
           // Male = 1 and Female = 2
@@ -229,7 +228,7 @@ function App() {
             title="Age Group"
             value={ageGroup}
             options = {maleAgeGroup}
-            handleSliderChange={handleSliderChange}
+            handleInputChange={handleInputChange}
             />
           : Number(gender) === 2?
 
@@ -238,14 +237,14 @@ function App() {
             title="Age Group"
             value={ageGroup}
             options={femaleAgeGroup}
-            handleSliderChange={handleSliderChange}
+            handleInputChange={handleInputChange}
             />
           :
           <InputBox
             type="select"
             title="Age Group"
             options = {[]}
-            handleSliderChange={handleSliderChange}
+            handleInputChange={handleInputChange}
             />
         }
         <p className='mt-6'>Your BMI is: {bmi}</p>

@@ -9,7 +9,7 @@ function InputBox({
     max='200', 
     step='1',
     options=[],
-    handleSliderChange}) {
+    handleInputChange}) {
   return (
     <div className='my-3 flex flex-col gap-2'>
         <>
@@ -22,7 +22,7 @@ function InputBox({
               min={min}
               max={max}
               step={step}
-              onChange={ e => handleSliderChange(e.target.value,title)}
+              onChange={ e => handleInputChange(e.target.value,title)}
               />
           </>
             :
@@ -33,7 +33,7 @@ function InputBox({
               name='gender'
               value={value}
               className='py-1 px-2 border-2 border-gray-400 rounded hover:border-gray-500 focus:outline-none focus:border-gray-500'
-              onChange={ e => handleSliderChange(e.target.value, title)}
+              onChange={ e => handleInputChange(e.target.value, title)}
               >
               {options.map(option => (
                 <option key={option.id} value={option.id}>{option.value}</option>
@@ -46,7 +46,7 @@ function InputBox({
             <input 
               type = {type}
               value = {value}
-              onChange={ e => handleSliderChange(e.target.value, title)}
+              onChange={ e => handleInputChange(e.target.value, title)}
               className='py-1 px-2 border-2 border-gray-400 rounded hover:border-gray-500 focus:outline-none focus:border-gray-500'
               />
           </>
