@@ -144,6 +144,9 @@ function App() {
     setHeight(DEFAULT_SLIDER_VALUE);
     setWeight(DEFAULT_SLIDER_VALUE);
     setBmi(0);
+    setGender(0);
+    setAgeGroup(0);
+    setFeedback("");
   }
 
   function handleFeedbackWithGenderAndAge(bmi){
