@@ -146,7 +146,7 @@ function App() {
     setBmi(0);
   }
 
-  function handleFeedbackWithGenderAndAge(){
+  function handleFeedbackWithGenderAndAge(bmi){
     // gender
     // age group
     // bmi
@@ -176,8 +176,8 @@ function App() {
     const heightInMeter = height/100;
     let res = 0;
     if(weight !== 0 && height !== 0) res = (weight/ (heightInMeter * heightInMeter)).toFixed(2);
+    handleFeedbackWithGenderAndAge(res);
     setBmi(res);
-    handleFeedbackWithGenderAndAge();
   }
 
   // Callback function that gets data from child component: Slider
