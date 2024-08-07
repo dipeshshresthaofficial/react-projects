@@ -144,29 +144,33 @@ function App() {
     setHeight(DEFAULT_SLIDER_VALUE);
     setWeight(DEFAULT_SLIDER_VALUE);
     setBmi(0);
-    setGender(0);
-    setAgeGroup(0);
+    setGender(-1);
+    setAgeGroup(-1);
     setFeedback("");
   }
 
   function handleFeedbackWithGenderAndAge(bmi){
     let data = [];
-    // Male = 1 and Female = 2
-    if(Number(gender) === 1){
-      data = maleAgeGroup.filter( item => Number(item.id) == ageGroup)
+    if(ageGroup != -1){
+      // Male = 1 and Female = 2
+      if(Number(gender) === 1){
+        data = maleAgeGroup.filter( item => Number(item.id) == ageGroup)
+      } else{
+        data = femaleAgeGroup.filter( item => Number(item.id) == ageGroup) 
+      }
+      if(Number(gender) === 1 || Number(gender) === 2){
+        // Destructuring assignment (object destructuring)
+        const {optimalBMI, acceptableBMI} = data[0];
+        const optimalBMIArr = optimalBMI.split("-");
+        const acceptableBMIArr = acceptableBMI.split("-");
+        if(bmi >= optimalBMIArr[0] && bmi <= optimalBMIArr[1]) 
+            setFeedback("Your BMI is optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
+        else if(bmi >= acceptableBMIArr[0] && bmi <= acceptableBMIArr[1]) 
+            setFeedback("Your BMI is acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
+        else setFeedback("Your BMI is neither in optimal nor in acceptable range");
+      }
     } else{
-      data = femaleAgeGroup.filter( item => Number(item.id) == ageGroup) 
-    }
-    if(Number(gender) === 1 || Number(gender) === 2){
-      // Destructuring assignment (object destructuring)
-      const {optimalBMI, acceptableBMI} = data[0];
-      const optimalBMIArr = optimalBMI.split("-");
-      const acceptableBMIArr = acceptableBMI.split("-");
-      if(bmi >= optimalBMIArr[0] && bmi <= optimalBMIArr[1]) 
-          setFeedback("Your BMI is optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
-      else if(bmi >= acceptableBMIArr[0] && bmi <= acceptableBMIArr[1]) 
-          setFeedback("Your BMI is acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
-      else setFeedback("Your BMI is neither in optimal nor in acceptable range");
+      alert("Please select the age group as well.");
     }
   }
 
