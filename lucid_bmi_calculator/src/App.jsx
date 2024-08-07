@@ -14,7 +14,7 @@ function App() {
   useEffect(()=>{
     const actionBtns = document.getElementsByClassName("action-btn");
     // In the case were just height is 0 it results in infinity case so we should let the button stay disabled
-    if(height == 0 || (weight == 0 && height == 0)){
+    if((weight == 0 || height == 0)){
       for(let i=0; i<actionBtns.length; i++){
         actionBtns[i].disabled = true;
         actionBtns[i].style.opacity = '0.2';
