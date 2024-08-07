@@ -230,11 +230,19 @@ function App() {
             options = {maleAgeGroup}
             handleSliderChange={handleSliderChange}
             />
+          : Number(gender) === 2?
+
+          <InputBox
+            type="select"
+            title="Age Group"
+            options={femaleAgeGroup}
+            handleSliderChange={handleSliderChange}
+            />
           :
           <InputBox
             type="select"
             title="Age Group"
-            options = {femaleAgeGroup}
+            options = {[]}
             handleSliderChange={handleSliderChange}
             />
         }
