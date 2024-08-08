@@ -193,7 +193,7 @@ function App() {
   }
 
   return (
-    <div className='border rounded-md'>
+    <div className='w-96 border rounded-md'>
       <h1 className='py-5 px-10 bg-violet-500 text-white'>BMI Calculator</h1>
       <div className='p-5'>
         <InputBox
@@ -212,7 +212,7 @@ function App() {
           handleInputChange = {handleInputChange}
           />
         
-        <span className='block text-left text-gray-400 italic'>*Below fields are optional*</span>
+        <span className='mt-8 block text-left text-gray-400 italic'>*Below fields are optional*</span>
         <InputBox
           type="select"
           title="Gender"
@@ -249,7 +249,7 @@ function App() {
         }
         <p className='mt-6'>Your BMI is: {bmi}</p>
         <p className='my-4'>{feedback}</p>
-        <div className='flex flex-row justify-center gap-4'>
+        <div className='mt-5 flex flex-row justify-center gap-4'>
           <input 
             type='button' 
             value= "Calculate" 
@@ -262,6 +262,17 @@ function App() {
             onClick={handleResetFields}
             className='action-btn bg-slate-800 text-white rounded-full py-2 px-5 text-semibold hover:bg-slate-950 focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75'
             />
+        </div>
+        <div className='notes my-10'>
+          <span className='block text-left italic text-gray-400'>References:</span>
+          <p className='text-left text-xs mt-2'>
+            <b>Optimal BMI:</b> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>
+          <p className='text-left text-xs mt-2'>
+            <b>Acceptable BMI:</b> It is a broader range that includes both the optimal range and slightly higher values that are still considered acceptable but may carry a <u>higher health risk</u>.
+          </p>
+          <p className='text-left text-xs mt-2'>
+            Yi, S., Ohrr, H., Shin, S., & Yi, J. (2015). <cite>Sex-age-specific association of body mass index with all-cause mortality among 12.8 million Korean adults: a prospective cohort study</cite>. International Journal of Epidemiology, 44(5), 1696–1705. https://doi.org/10.1093/ije/dyv138
+          </p>
         </div>
       </div>
     </div>
