@@ -21,5 +21,28 @@ body {
   to add these styling in body while html has "dark" class*/
 .dark body{
   background-color: var(--dark-mode-bg-color);
-  color: var(--dark-mode-text-color)
+  color: var(--dark-mode-text-color);
+}
+
+/* Light Mode Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-bg-color);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
+/* Dark Mode Scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-bg-color); /* Define color for dark mode */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--dark-mode-bg-color); /* Define track color for dark mode */
 }
