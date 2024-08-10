@@ -36,5 +36,8 @@ body {
 :root{
   --dark-mode-bg-color: #021121;
   --dark-mode-text-color: #ffffff;
+  --scrollbar-bg-color: #888888;
+  --gray-color: #f1f1f1;
+  --white: #ffffff;
 }
 
