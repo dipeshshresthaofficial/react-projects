@@ -16,3 +16,26 @@ body {
   /* smooth transition between dark and light mode */
   transition: background-color 250ms ease-in-out;
 }
+
+/* Light Mode Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Dark Mode Scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #000;
+}
