@@ -33,3 +33,8 @@ body {
   width: 100%;
 }
 
+:root{
+  --dark-mode-bg-color: #021121;
+  --dark-mode-text-color: #ffffff;
+}
+

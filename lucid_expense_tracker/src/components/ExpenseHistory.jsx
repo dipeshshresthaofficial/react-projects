@@ -4,9 +4,9 @@ import HistoryCard from './HistoryCard'
 function ExpenseHistory({ transactions }) {
   return (
     <div className='my-7'>
-        <h2 className='text-left text-xl text-black'>History</h2>
+        <h2 className='text-left text-xl'>History</h2>
         <hr className='mb-3 '></hr>
-        <div className=' max-h-96 overflow-scroll'>
+        <div className=' max-h-96 overflow-y-scroll'>
             {
                 transactions.map( transaction => (
                     <HistoryCard 

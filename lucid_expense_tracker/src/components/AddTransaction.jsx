@@ -4,7 +4,7 @@ import LabelAndInput from './LabelAndInput'
 function AddTransaction({transactionTitle, transactionAmount, handleTransactionInputValue, handleAddTransaction}) {
   return (
     <div className='my-7'>
-        <h2 className='text-xl text-left text-black'>Add New Transaction</h2>
+        <h2 className='text-xl text-left'>Add New Transaction</h2>
         <hr></hr>
         <LabelAndInput 
             labelText='Enter Transaction Title:'
@@ -24,7 +24,7 @@ function AddTransaction({transactionTitle, transactionAmount, handleTransactionI
         <input 
             type='button'
             value='Add'
-            className='py-2 px-5 mt-4 bg-violet-500 text-white font-semibold rounded w-full hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75'
+            className='py-2 px-5 mt-4 bg-violet-500 text-white font-semibold rounded w-full cursor-pointer hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75'
             onClick={handleAddTransaction}
             />
     </div>
