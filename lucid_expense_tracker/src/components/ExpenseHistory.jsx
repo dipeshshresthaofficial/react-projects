@@ -6,7 +6,7 @@ function ExpenseHistory({ transactions }) {
     <div className='my-7'>
         <h2 className='text-left text-xl'>History</h2>
         <hr className='mb-3 '></hr>
-        <div className=' max-h-96 overflow-y-scroll custom-scrollbar'>
+        <div className=' max-h-96 overflow-y-scroll'>
             {
                 transactions.map( transaction => (
                     <HistoryCard 
