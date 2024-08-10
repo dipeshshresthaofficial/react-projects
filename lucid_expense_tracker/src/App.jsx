@@ -4,6 +4,9 @@ import Portfolio from './components/Portfolio'
 import ExpenseHistory from './components/ExpenseHistory'
 import AddTransaction from './components/AddTransaction'
 
+import sun from './assets/icons/sun.svg'
+import moon from './assets/icons/moon.svg'
+
 function App() {
 
   const [income,setIncome] = useState(0);
@@ -14,6 +17,7 @@ function App() {
   const [transactionAmount, setTransactionAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false)
+  const [fadeOut, setFadeOut] = useState(false);
 
   // Fetching data from "./../data.json" which is simulated to be present in server for asynchronous call
   useEffect(()=>{
@@ -108,13 +112,32 @@ function App() {
     }
   }
 
+  const toggleThemeMode = () => {
+    setFadeOut(true); // Start fade-out
+    setTimeout(() => {
+      setIsDarkModeEnabled(!isDarkModeEnabled); // Toggle theme
+      setFadeOut(false); // Reset fade-out
+    }, 250); // Match this duration with the transition duration
+  };
+
   return (
     <div className=''>
-      <input 
-        type="button" 
-        value={isDarkModeEnabled? "Light Mode":"Dark Mode"}
-        className='py-1 px-2 bg-black bg-opacity-85 text-white rounded hover:bg-opacity-100 cursor-pointer focus:outline-none dark:bg-white dark:text-black'
-        onClick={() => setIsDarkModeEnabled(!isDarkModeEnabled)} />
+      <button 
+        className='h-10 w-10 absolute top-2 right-2 p-2 bg-amber-200 bg-opacity-85 text-white rounded-full hover:bg-opacity-100 cursor-pointer focus:outline-none dark:bg-zinc-200 dark:text-black'
+        onClick={toggleThemeMode}>
+        <img 
+          src={sun} 
+          className={`icon ${!isDarkModeEnabled && !fadeOut ? 'fade-in' : 'fade-out'}`} 
+          alt="Sun Icon"
+          style={{ display: isDarkModeEnabled || fadeOut ? 'none' : 'block' }} 
+        />
+        <img 
+          src={moon} 
+          className={`icon ${isDarkModeEnabled && !fadeOut ? 'fade-in' : 'fade-out'}`} 
+          alt="Moon Icon"
+          style={{ display: isDarkModeEnabled ? 'block' : 'none' }} 
+        />
+      </button>
       <h2 className='text-2xl mb-1'>Lucid Expense Tracker</h2>
       <div className='mb-10 border-t-2 w-24 mx-auto border-violet-400 border-opacity-80'></div>
       <div className='flex flex-row gap-14 p-5'>

@@ -46,3 +46,18 @@ body {
 .dark .custom-scrollbar::-webkit-scrollbar-track {
   background-color: var(--dark-mode-bg-color); /* Define track color for dark mode */
 }
+
+/* Styling Theme Icons toggle (dark mode, light mode) */
+.icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+  transition: opacity 250ms ease-in-out; /* Smooth opacity transition */
+}
+
+.fade-out {
+  opacity: 0; /* Fade out effect */
+}
+
+.fade-in {
+  opacity: 1; /* Fade in effect */
+}
