@@ -9,7 +9,7 @@ function LabelAndInput({labelText='', subLabel='', placeholder='', type='text', 
             type={type}
             value={value}
             placeholder={placeholder}
-            className='border rounded py-1 px-3 hover:border-2 focus:outline-none focus:border-2'
+            className='border rounded py-1 px-3 text-black hover:border-2 focus:outline-none focus:border-2 dark:ring dark:ring-gray-400'
             onChange={e => handleTransactionInputValue(e.target.value, type)}
             />
     </div>

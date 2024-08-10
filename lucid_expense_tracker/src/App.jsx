@@ -13,6 +13,7 @@ function App() {
   const [transactionTitle, setTransactionTitle] = useState("");
   const [transactionAmount, setTransactionAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false)
 
   // Fetching data from "./../data.json" which is simulated to be present in server for asynchronous call
   useEffect(()=>{
@@ -48,6 +49,16 @@ function App() {
     }
     fetchData();
   },[])
+
+  // updating dark model state
+  useEffect(()=>{
+    const root = document.documentElement;
+    if (isDarkModeEnabled) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  },[isDarkModeEnabled])
 
   // called for updating the profile section
   function updatePortfolio(transaction){
@@ -99,6 +110,11 @@ function App() {
 
   return (
     <div className=''>
+      <input 
+        type="button" 
+        value={isDarkModeEnabled? "Light Mode":"Dark Mode"}
+        className='py-1 px-2 bg-black bg-opacity-85 text-white rounded hover:bg-opacity-100 cursor-pointer focus:outline-none dark:bg-white dark:text-black'
+        onClick={() => setIsDarkModeEnabled(!isDarkModeEnabled)} />
       <h2 className='text-2xl mb-1'>Lucid Expense Tracker</h2>
       <div className='mb-10 border-t-2 w-24 mx-auto border-violet-400 border-opacity-80'></div>
       <div className='flex flex-row gap-14 p-5'>
