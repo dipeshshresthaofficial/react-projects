@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { categories } from '../utils/constants'
 import { Stack } from '@mui/material'
+import { customColors } from '../utils/customColors';
 
 const Sidebar = () => {
     const [selectedCategory, setSelectedCategory] = useState('New');
   return (
     <Stack
+        direction='row'
         sx={{
             overflowY:'auto',
-            height: '95%'
+            height: {sx: 'auto', md: '95%'},
+            flexDirection: { md: 'column' }
         }}
         >
         {
@@ -17,7 +20,7 @@ const Sidebar = () => {
                     className='category-btn'
                     style={{
                         color: 'white',
-                        backgroundColor: selectedCategory === category.name? '#FC1503':''
+                        backgroundColor: selectedCategory === category.name? customColors.red:''
                     }}
                     onClick={() => setSelectedCategory(category.name)}
                     >

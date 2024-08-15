@@ -24,6 +24,11 @@ const Feed = () => (
             }}
             >Copyright 2024 Dipesh Shrestha</Typography>
       </Box>
+      <Box sx={{ p: 2, }}>
+        <Typography variant="h4" sx={{ color: customColors.white}}>
+          New <span style={{ color: customColors.red }}>Videos</span>
+        </Typography>
+      </Box>
 
   </Stack>
 )
