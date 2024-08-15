@@ -1,13 +1,13 @@
 import React from 'react';
 import { Paper, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
-import { borderColor } from '../utils/customColors';
+import { customColors } from '../utils/customColors';
 
 const SearchBar = () => (
     <Paper
         sx={{
         pl: 2,
-        border: `1px solid ${borderColor}`,
+        border: `1px solid ${customColors.gray}`,
         borderRadius: 20,
         boxShadow: 'none',
         mr: { sm: 5 }
