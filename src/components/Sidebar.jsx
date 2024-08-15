@@ -3,8 +3,7 @@ import { categories } from '../utils/constants'
 import { Stack } from '@mui/material'
 import { customColors } from '../utils/customColors';
 
-const Sidebar = () => {
-    const [selectedCategory, setSelectedCategory] = useState('New');
+const Sidebar = ({selectedCategory, handleSelectedCategory}) => {
   return (
     <Stack
         direction='row'
@@ -23,7 +22,7 @@ const Sidebar = () => {
                         color: 'white',
                         backgroundColor: selectedCategory === category.name? customColors.red:''
                     }}
-                    onClick={() => setSelectedCategory(category.name)}
+                    onClick={() => handleSelectedCategory(category.name)}
                     >
                     <span style={{ marginRight: '10px'}}>{category.icon}</span>
                     <span>{category.name}</span>
