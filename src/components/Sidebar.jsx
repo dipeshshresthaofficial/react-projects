@@ -6,7 +6,10 @@ const Sidebar = () => {
     const [selectedCategory, setSelectedCategory] = useState('New');
   return (
     <Stack
-        
+        sx={{
+            overflowY:'auto',
+            height: '95%'
+        }}
         >
         {
             categories.map( category => (
