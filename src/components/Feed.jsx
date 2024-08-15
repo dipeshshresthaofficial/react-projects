@@ -1,6 +1,6 @@
 import { Stack, Box, Typography } from "@mui/material"
 import { customColors } from "../utils/customColors"
-import Sidebar from "./Sidebar"
+import { Sidebar, Videos } from "./index"
 
 
 const Feed = () => (
@@ -28,6 +28,7 @@ const Feed = () => (
         <Typography variant="h4" sx={{ color: customColors.white}}>
           New <span style={{ color: customColors.red }}>Videos</span>
         </Typography>
+        <Videos />
       </Box>
 
   </Stack>

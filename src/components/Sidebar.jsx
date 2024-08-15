@@ -17,6 +17,7 @@ const Sidebar = () => {
         {
             categories.map( category => (
                 <button
+                    key={category.name}
                     className='category-btn'
                     style={{
                         color: 'white',
