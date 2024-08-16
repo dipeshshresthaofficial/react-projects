@@ -30,7 +30,7 @@ const Feed = () => {
         {/* Sidebar container */}
         <Box
           sx={{
-            height: '92vh',
+            height: {md: '92vh', sx: 'auto'},
             borderRight: `1px solid ${customColors.lightGray}`,
             pr: 2,
           }}
@@ -45,7 +45,7 @@ const Feed = () => {
         </Box>
           
         {/* Videos Feed */}
-        <Box sx={{ p: 2, }}>
+        <Box sx={{ p: 2, height: {md: '92vh', sx: 'auto'}}}>
           <Typography variant="h5" sx={{ color: customColors.white}}>
             {selectedCategory} <span style={{ color: customColors.red }}>Videos</span>
           </Typography>
