@@ -163,9 +163,9 @@ function App() {
       const optimalBMIArr = optimalBMI.split("-");
       const acceptableBMIArr = acceptableBMI.split("-");
       if(bmi >= optimalBMIArr[0] && bmi <= optimalBMIArr[1]) 
-          setFeedback("Your BMI is optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
+          setFeedback("Your BMI is in optimal range: "+optimalBMIArr[0]+"-"+optimalBMIArr[1]);
       else if(bmi >= acceptableBMIArr[0] && bmi <= acceptableBMIArr[1]) 
-          setFeedback("Your BMI is acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
+          setFeedback("Your BMI is in acceptable range: "+acceptableBMIArr[0]+"-"+acceptableBMIArr[1]);
       else setFeedback("Your BMI is neither in optimal nor in acceptable range");
     }
   }
@@ -193,9 +193,9 @@ function App() {
   }
 
   return (
-    <div className='w-96 border rounded-md'>
-      <h1 className='py-5 px-10 bg-violet-500 text-white'>BMI Calculator</h1>
-      <div className='p-5'>
+    <div className='w-96 border rounded-md text-secondary'>
+      <h2 className='text-2xl py-5 px-10 bg-primary text-white'>BMI Calculator</h2>
+      <div className='px-5 py-2'>
         <InputBox
           type="range"
           title='Weight' 
@@ -254,25 +254,27 @@ function App() {
             type='button' 
             value= "Calculate" 
             onClick={handleCalculateBMI}
-            className='action-btn bg-violet-600 text-white rounded-full py-2 px-5 font-semibold hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75'
+            className='action-btn bg-primary text-white rounded-full py-2 px-5 font-semibold cursor-pointer hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-75'
             />
           <input 
             type='button' 
             value= "Reset"
             onClick={handleResetFields}
-            className='action-btn bg-slate-800 text-white rounded-full py-2 px-5 text-semibold hover:bg-slate-950 focus:outline-none focus:ring focus:ring-slate-600 focus:ring-opacity-75'
+            className='action-btn bg-secondary text-white rounded-full py-2 px-5 text-semibold cursor-pointer hover:bg-secondary-dark focus:outline-none focus:ring focus:ring-secondary focus:ring-opacity-75'
             />
         </div>
-        <div className='notes my-10'>
+        <div className='notes my-3'>
           <span className='block text-left italic text-gray-400'>References:</span>
-          <p className='text-left text-xs mt-2'>
-            <b>Optimal BMI:</b> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>
-          <p className='text-left text-xs mt-2'>
-            <b>Acceptable BMI:</b> It is a broader range that includes both the optimal range and slightly higher values that are still considered acceptable but may carry a <u>higher health risk</u>.
-          </p>
-          <p className='text-left text-xs mt-2'>
-            Yi, S., Ohrr, H., Shin, S., & Yi, J. (2015). <cite>Sex-age-specific association of body mass index with all-cause mortality among 12.8 million Korean adults: a prospective cohort study</cite>. International Journal of Epidemiology, 44(5), 1696–1705. https://doi.org/10.1093/ije/dyv138
-          </p>
+          <div className=' max-h-36 overflow-y-scroll'>
+            <p className='text-left text-xs mt-2'>
+              <span className='text-primary'><b>Optimal BMI:</b></span> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>
+            <p className='text-left text-xs mt-2'>
+              <span className='text-primary'><b>Acceptable BMI:</b></span> It is a broader range that includes both the optimal range and slightly higher values that are still considered acceptable but may carry a <u>higher health risk</u>.
+            </p>
+            <p className='text-left text-xs mt-2'>
+              Yi, S., Ohrr, H., Shin, S., & Yi, J. (2015). <cite className='text-primary'>Sex-age-specific association of body mass index with all-cause mortality among 12.8 million Korean adults: a prospective cohort study</cite>. International Journal of Epidemiology, 44(5), 1696–1705. https://doi.org/10.1093/ije/dyv138
+            </p>
+          </div>
         </div>
       </div>
     </div>

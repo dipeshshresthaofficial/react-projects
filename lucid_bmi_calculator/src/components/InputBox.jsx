@@ -11,7 +11,7 @@ function InputBox({
     options=[],
     handleInputChange}) {
   return (
-    <div className='my-3 flex flex-col gap-2'>
+    <div className='my-3 flex flex-col gap-2 text-secondary'>
         <>
         { type == "range"?
           <>
