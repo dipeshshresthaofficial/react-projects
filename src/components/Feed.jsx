@@ -46,8 +46,8 @@ const Feed = () => {
           
         {/* Videos Feed */}
         <Box sx={{ p: 2, }}>
-          <Typography variant="h4" sx={{ color: customColors.white}}>
-            New <span style={{ color: customColors.red }}>Videos</span>
+          <Typography variant="h5" sx={{ color: customColors.white}}>
+            {selectedCategory} <span style={{ color: customColors.red }}>Videos</span>
           </Typography>
           <Videos videos={videos}/>
         </Box>
