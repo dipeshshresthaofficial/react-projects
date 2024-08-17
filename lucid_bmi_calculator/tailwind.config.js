@@ -3,6 +3,7 @@ export default {
   content: [
     "./src/**/*.{html, js,jsx}"
   ],
+  darkMode: 'class', //enable darkmode based on specific CSS class rather than user's system preferences
   theme: {
     extend: {
       colors:{

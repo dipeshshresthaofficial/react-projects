@@ -11,6 +11,7 @@ function App() {
   const [gender, setGender] = useState(-1);
   const [ageGroup, setAgeGroup] = useState(-1);
   const [feedback, setFeedback] = useState("");
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(true);
 
   const genderOptions = [
     {
@@ -139,6 +140,15 @@ function App() {
     }
   },[weight,height]);
 
+  useEffect(() =>{
+    const htmlRef = document.documentElement;
+    if(isDarkModeEnabled){
+      htmlRef.classList.add("dark");
+    } else{
+      htmlRef.classList.remove("dark");
+    }
+  },[isDarkModeEnabled])
+
   // resetting fields back to default
   function handleResetFields(){
     setHeight(DEFAULT_SLIDER_VALUE);
@@ -193,7 +203,10 @@ function App() {
   }
 
   return (
-    <div className='w-96 border rounded-md text-secondary'>
+    <div className='w-96 border rounded-md text-secondary dark:text-white'>
+      <button 
+      className='absolute top-4 right-4 bg-primary text-white px-3 py-2 rounded border-none focus:outline-none'
+      onClick={()=> setIsDarkModeEnabled(!isDarkModeEnabled)}>{isDarkModeEnabled? "Dark Mode":"Light Mode"}</button>
       <h2 className='text-2xl py-5 px-10 bg-primary text-white'>BMI Calculator</h2>
       <div className='px-5 py-2'>
         <InputBox
@@ -263,9 +276,9 @@ function App() {
             className='action-btn bg-secondary text-white rounded-full py-2 px-5 text-semibold cursor-pointer hover:bg-secondary-dark focus:outline-none focus:ring focus:ring-secondary focus:ring-opacity-75'
             />
         </div>
-        <div className='notes my-3'>
+        <div className='notes mt-8 mb-3'>
           <span className='block text-left italic text-gray-400'>References:</span>
-          <div className=' max-h-36 overflow-y-scroll'>
+          <div className=' max-h-28 overflow-y-scroll'>
             <p className='text-left text-xs mt-2'>
               <span className='text-primary'><b>Optimal BMI:</b></span> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>
             <p className='text-left text-xs mt-2'>

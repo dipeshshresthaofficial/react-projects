@@ -15,8 +15,9 @@
 # Next Functionalities to add:
 - Robust: Disable Calculate and Reset button until user inputs data ✅
 - User Friendly: Based on user age, provide feedback (Optimal, Acceptable) ✅
-- User Preference: Dark Mode
+- User Preference: Dark Mode ✅
 - Flexibilty: Allow users to input weight in "lb"
+- Add vertical scrollbar in References section so that everything fits in the screen size. ✅
 
 # React + Vite
 
