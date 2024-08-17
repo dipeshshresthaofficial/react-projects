@@ -215,10 +215,9 @@ function App() {
   }
 
   return (
-    <div className='w-96 border rounded-md text-secondary dark:text-white'>
+    <div className='main-container w-96 rounded-md overflow-hidden text-secondary dark:text-white'>
       <button 
-      className={`absolute top-4 right-4 text-white px-2 py-2 border rounded-full focus:outline-none ${isDarkModeEnabled? 'bg-gray':"bg-yellow"
-      }`}
+      className={`absolute top-4 right-4 text-white px-2 py-2 rounded-full focus:outline-none ${isDarkModeEnabled? 'bg-custom-gray':"bg-custom-yellow"}`}
       onClick={()=> handleToggleTheme()}>
         <img
           src={sun}
@@ -235,7 +234,7 @@ function App() {
           style={{ display: isDarkModeEnabled? 'block':'none' }}
           />
       </button>
-      <h2 className='text-2xl py-5 px-10 bg-primary text-white'>BMI Calculator</h2>
+      <h2 className='text-2xl py-5 px-10 bg-primary dark:bg-primary-dark text-white'>BMI Calculator</h2>
       <div className='px-5 py-2'>
         <InputBox
           type="range"
@@ -253,7 +252,7 @@ function App() {
           handleInputChange = {handleInputChange}
           />
         
-        <span className='mt-8 block text-left text-gray-400 italic'>*Below fields are optional*</span>
+        <span className='mt-8 block text-left text-custom-dark-gray italic'>*Below fields are optional*</span>
         <InputBox
           type="select"
           title="Gender"
@@ -295,17 +294,17 @@ function App() {
             type='button' 
             value= "Calculate" 
             onClick={handleCalculateBMI}
-            className='action-btn bg-primary text-white rounded-full py-2 px-5 font-semibold cursor-pointer hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-75'
+            className='action-btn bg-primary dark:bg-primary-dark text-white rounded-full py-2 px-5 font-semibold cursor-pointer hover:ring hover:ring-primary hover:ring-opacity-75 dark:hover:ring-opacity-85 focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-85'
             />
           <input 
             type='button' 
             value= "Reset"
             onClick={handleResetFields}
-            className='action-btn bg-secondary text-white rounded-full py-2 px-5 text-semibold cursor-pointer hover:bg-secondary-dark focus:outline-none focus:ring focus:ring-secondary focus:ring-opacity-75'
+            className='action-btn bg-secondary text-white rounded-full py-2 px-5 text-semibold cursor-pointer hover:ring hover:ring-secondary hover:ring-opacity-75'
             />
         </div>
         <div className='notes mt-8 mb-3'>
-          <span className='block text-left italic text-gray-400'>References:</span>
+          <span className='block text-left italic text-custom-dark-gray'>References:</span>
           <div className=' max-h-28 overflow-y-scroll'>
             <p className='text-left text-xs mt-2'>
               <span className='text-primary'><b>Optimal BMI:</b></span> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>

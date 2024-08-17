@@ -5,8 +5,9 @@
 
 :root {
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-  --dark-mode-bg-color: #021121;
+  --dark-mode-bg-color: #1B212C;
   --dark-mode-text-color: #ffffff;
+  --light-mode-bg-color: #eeeaea;
 }
 
 body {
@@ -16,19 +17,29 @@ body {
   min-width: 320px;
   min-height: 100vh;
   transition: background-color 250ms ease-in-out;
+  background-color: var(--light-mode-bg-color);
+}
+
+.main-container {
+  box-shadow: 4px 5px 30px -9px rgba(0, 0, 0, 0.64);
+}
+
+select{
+  background-color: var(--light-mode-bg-color);
 }
 
 /* Dark Mode Styles */
 
 .dark body{
   background-color: var(--dark-mode-bg-color);
-  color: var(--dark-mode-text-color);}
+  color: var(--dark-mode-text-color);
+}
 
 .dark select{
   color: black;
 }
 
-/* Dark Mode Toggle Styles */
+/* Dark Mode button Toggle Styles */
 .icon{
   transition: opacity 250ms ease-in-out;
 }
@@ -40,3 +51,4 @@ body {
 .fade-out{
   opacity: 0;
 }
+

@@ -23,6 +23,7 @@ function InputBox({
               max={max}
               step={step}
               onChange={ e => handleInputChange(e.target.value,title)}
+              className='accent-primary focus:accent-primary'
               />
           </>
             :
@@ -32,7 +33,7 @@ function InputBox({
             <select 
               name='gender'
               value={value}
-              className='py-1 px-2 border-2 border-gray-400 rounded hover:border-gray-500 focus:outline-none focus:border-gray-500'
+              className='py-1 px-2 border border-custom-dark-gray border-opacity-65 rounded hover:border-opacity-100 dark:hover:border-2 focus:outline-none'
               onChange={ e => handleInputChange(e.target.value, title)}
               >
               {options.map(option => (
@@ -47,7 +48,7 @@ function InputBox({
               type = {type}
               value = {value}
               onChange={ e => handleInputChange(e.target.value, title)}
-              className='py-1 px-2 border-2 border-gray-400 rounded hover:border-gray-500 focus:outline-none focus:border-gray-500'
+              className='py-1 px-2 border border-custom-dark-gray border-opacity-65 rounded hover:border-opacity-100 focus:outline-none'
               />
           </>
           }
