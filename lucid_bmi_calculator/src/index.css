@@ -15,6 +15,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  transition: background-color 250ms ease-in-out;
 }
 
 /* Dark Mode Styles */
@@ -25,4 +26,17 @@ body {
 
 .dark select{
   color: black;
+}
+
+/* Dark Mode Toggle Styles */
+.icon{
+  transition: opacity 250ms ease-in-out;
+}
+
+.fade-in{
+  opacity: 1;
+}
+
+.fade-out{
+  opacity: 0;
 }

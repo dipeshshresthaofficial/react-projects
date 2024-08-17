@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import InputBox from './components/InputBox'
+import moon from './assets/moon.svg';
+import sun from './assets/sun.svg';
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
   const [ageGroup, setAgeGroup] = useState(-1);
   const [feedback, setFeedback] = useState("");
   const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   const genderOptions = [
     {
@@ -202,11 +205,36 @@ function App() {
     else if (title == "Age Group") setAgeGroup(value);
   }
 
+  // handles dark mode switch toggle
+  function handleToggleTheme(){
+    setFadeOut(true);
+    setTimeout(() => {
+      setIsDarkModeEnabled(!isDarkModeEnabled);
+      setFadeOut(false);
+    }, 250);
+  }
+
   return (
     <div className='w-96 border rounded-md text-secondary dark:text-white'>
       <button 
-      className='absolute top-4 right-4 bg-primary text-white px-3 py-2 rounded border-none focus:outline-none'
-      onClick={()=> setIsDarkModeEnabled(!isDarkModeEnabled)}>{isDarkModeEnabled? "Dark Mode":"Light Mode"}</button>
+      className={`absolute top-4 right-4 text-white px-2 py-2 border rounded-full focus:outline-none ${isDarkModeEnabled? 'bg-gray':"bg-yellow"
+      }`}
+      onClick={()=> handleToggleTheme()}>
+        <img
+          src={sun}
+          alt="Light Mode"
+          width={25}
+          className={`icon ${!isDarkModeEnabled && !fadeOut? 'fade-in':'fade-out'}`}
+          style={{ display: !isDarkModeEnabled? 'block':'none' }}
+          />
+        <img
+          src={moon}
+          alt="Dark Mode"
+          width={25}
+          className={`icon ${isDarkModeEnabled && !fadeOut? 'fade-in':'fade-out'}`}
+          style={{ display: isDarkModeEnabled? 'block':'none' }}
+          />
+      </button>
       <h2 className='text-2xl py-5 px-10 bg-primary text-white'>BMI Calculator</h2>
       <div className='px-5 py-2'>
         <InputBox
