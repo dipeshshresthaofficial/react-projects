@@ -6,7 +6,7 @@
 :root {
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   --custom-dark-gray: rgb(158, 158, 160);
-  --dark-mode-bg-color: #1B212C;
+  --dark-mode-bg-color: #242629;
   --dark-mode-text-color: #ffffff;
   --light-mode-bg-color: #eeeaea;
 }
