@@ -5,6 +5,7 @@
 
 :root {
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  --custom-dark-gray: rgb(158, 158, 160);
   --dark-mode-bg-color: #1B212C;
   --dark-mode-text-color: #ffffff;
   --light-mode-bg-color: #eeeaea;
@@ -52,3 +53,11 @@ select{
   opacity: 0;
 }
 
+/* Scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar{
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--custom-dark-gray);
+  border-radius: 4px
+}

@@ -305,7 +305,7 @@ function App() {
         </div>
         <div className='notes mt-8 mb-3'>
           <span className='block text-left italic text-custom-dark-gray'>References:</span>
-          <div className=' max-h-28 overflow-y-scroll'>
+          <div className=' max-h-28 overflow-y-scroll custom-scrollbar pr-1'>
             <p className='text-left text-xs mt-2'>
               <span className='text-primary'><b>Optimal BMI:</b></span> It is considered the ideal BMI range for <u>maintaining good health</u>. It refers to the BMI range that is associated with the lowest risk of morbidity and mortality.</p>
             <p className='text-left text-xs mt-2'>
