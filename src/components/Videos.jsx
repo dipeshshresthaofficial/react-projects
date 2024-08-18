@@ -3,12 +3,14 @@ import React from 'react'
 import { VideoCard, ChannelCard } from './index';
 
 const Videos = ({videos}) => {
-  console.log(videos)
+
   return (
     <Stack
       direction='row'
       flexWrap='wrap'
       gap={2}
+      justifyContent='center'
+      alignItems='center'
       sx={{
         height: {sx: 'auto', md: '95%'},
         overflowY:'auto'

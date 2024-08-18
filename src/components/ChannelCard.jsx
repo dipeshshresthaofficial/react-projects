@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { customColors } from '../utils/customColors';
 import { CheckCircle } from '@mui/icons-material';
 
-const ChannelCard = ({channel}) => {
+const ChannelCard = ({channel, marginTop}) => {
   return (
     <Box
-      sx={{ width: '320px', display:'flex', alignItems: 'center', justifyContent: 'center'}}
+      sx={{ width: '320px', display:'flex', alignItems: 'center', justifyContent: 'center', marginTop}}
       >
       <Link
         to={channel?.id?.channelId? `/channel/${channel?.id?.channelId}`: demoChannelUrl}
@@ -36,7 +36,7 @@ const ChannelCard = ({channel}) => {
           <Typography
             variant='subtitle1'
             >
-            {channel?.snippet?.channelTitle}
+            {channel?.snippet?.title}
             <CheckCircle 
             sx={{
               fontSize: 14
