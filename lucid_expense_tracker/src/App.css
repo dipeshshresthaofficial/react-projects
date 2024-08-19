@@ -1,0 +1,63 @@
+html{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  /* smooth transition between dark and light mode */
+  transition: background-color 250ms ease-in-out;
+}
+
+/* dark:bg-black of tailwind css didn't work so adding this custom CSS 
+  to add these styling in body while html has "dark" class*/
+.dark body{
+  background-color: var(--dark-mode-bg-color);
+  color: var(--dark-mode-text-color);
+}
+
+/* Light Mode Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-bg-color);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
+/* Dark Mode Scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-bg-color); /* Define color for dark mode */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--dark-mode-bg-color); /* Define track color for dark mode */
+}
+
+/* Styling Theme Icons toggle (dark mode, light mode) */
+.icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+  transition: opacity 250ms ease-in-out; /* Smooth opacity transition */
+}
+
+.fade-out {
+  opacity: 0; /* Fade out effect */
+}
+
+.fade-in {
+  opacity: 1; /* Fade in effect */
+}
